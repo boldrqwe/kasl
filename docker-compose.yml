@@ -9,10 +9,8 @@ services:
       - "5800:5800" # NoVNC доступ через браузер
       - "5900:5900" # VNC-клиент доступ
     environment:
-      - VNC_PASSWORD=${VNC_PASSWORD} # Пароль берётся из секретов
+      - VNC_PASSWORD=${VNC_PASSWORD} #
     restart: unless-stopped
-
-
 
 volumes:
   vnc-data:
