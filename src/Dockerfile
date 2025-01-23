@@ -1,13 +1,11 @@
-FROM python:3.10-slim
+FROM jlesage/firefox
 
-# Устанавливаем рабочую директорию
-WORKDIR /app
+# Устанавливаем VNC_PASSWORD через переменную окружения
+ENV VNC_PASSWORD=123
 
-# Копируем файлы проекта
-COPY . /app
+# Открываем необходимые порты
+EXPOSE 5800
+EXPOSE 5900
 
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Запускаем приложение
-CMD ["python", "run_container.py"]
+# Указываем команду запуска Firefox-контейнера
+CMD ["/init"]
