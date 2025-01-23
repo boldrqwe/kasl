@@ -6,8 +6,8 @@ WORKDIR /app
 # Копируем файлы проекта
 COPY . /app
 
-# Устанавливаем зависимости (если есть)
+# Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Устанавливаем точку входа
+# Запускаем приложение
 CMD ["python", "run_container.py"]
