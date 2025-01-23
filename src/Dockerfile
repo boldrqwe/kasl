@@ -1,8 +1,13 @@
-# Используем базовый образ для Firefox с VNC
-FROM jlesage/firefox
+FROM python:3.10-slim
 
-# Указываем пароль для VNC
-ENV VNC_PASSWORD=123
+# Устанавливаем рабочую директорию
+WORKDIR /app
 
-# Пробрасываем порты
-EXPOSE 5800 5900
+# Копируем файлы проекта
+COPY . /app
+
+# Устанавливаем зависимости (если есть)
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Устанавливаем точку входа
+CMD ["python", "run_container.py"]
